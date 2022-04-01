@@ -14,6 +14,10 @@ body {
   align-items: center; /*in column direction so this centers along cross axis, x axis in this case. */
 }
 
+#buttons-container {
+  margin-bottom: 1.5rem;
+}
+
 /* your CSS below! */
 td {
   /*style each individual rectangle cell of data, several of these make up a row, each one will get colored as user clicks on it*/
@@ -31,4 +35,8 @@ td {
 }
 .yellow {
   background-color: yellow;
+}
+
+.clear {
+  background-color: lightgray;
 }

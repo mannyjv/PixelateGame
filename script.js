@@ -1,6 +1,7 @@
 const table = document.getElementsByTagName('table')[0]; //grab parent table element, must be indexed into since an this document method for finding elements returns an html collection
 const addRowButton = document.getElementById('add-row'); //grabbing the add row button so we can attach an event listener
 const select = document.getElementsByTagName('select')[0]; //grabbing select parent element that hosts the inner children option children elements for choosing each color
+const clearGridButton = document.getElementById('clear-grid');
 
 let chosenColor = 'red'; //default red as chosen color on load
 
@@ -9,6 +10,7 @@ addRowButton.addEventListener('click', makeRow); //click event listener on addRo
 table.addEventListener('click', colorize); //lick is fired after a full click action occurs;the mouse button is pressed and released while the pointer remains inside the same element.
 table.addEventListener('mousedown', addMouseOver); //user clicks down on mouse and drags/hovers to other elements while click is still down- doesnt invoke colorize itself, instead invokes addMouseOver event which adds a listener to table for mouseover which then invokes colorize func
 table.addEventListener('mouseup', removeMouseOver); //fired at an Element when a button on a pointing device (such as a mouse or trackpad) is released while the pointer is located inside it.- handler is removeMouseOver which removes the mouseover listen from the table element
+clearGridButton.addEventListener('click', clearGrid);
 
 function makeRow() {
   //func to create a new row will trigger everytime user clicks "add a row"
@@ -54,4 +56,12 @@ function addMouseOver() {
 function removeMouseOver() {
   //simply removes the mouseover event so that the coloring stops
   table.removeEventListener('mouseover', colorize);
+}
+
+function clearGrid() {
+  const allGridCells = Array.from(document.getElementsByTagName('td'));
+
+  allGridCells.forEach((cell) => {
+    cell.className = 'clear';
+  });
 }
