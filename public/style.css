@@ -8,7 +8,7 @@ html {
   color: white; /*default font color*/
 }
 
-body {
+#pixelate {
   display: flex;
   flex-direction: column; /*needs to be column since its the "pixelate headline, div containing the buttons to add a row and select colors, and actual table with rows. All of these have to be in column format not row, so they are stacked on top of each other */
   align-items: center; /*in column direction so this centers along cross axis, x axis in this case. */
@@ -18,12 +18,12 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* your CSS below! */
 td {
   /*style each individual rectangle cell of data, several of these make up a row, each one will get colored as user clicks on it*/
   background-color: lightgray;
   width: 50px;
   height: 50px;
+  transition: background-color 0.35s ease;
 }
 
 /*below stylings allow the user to switch colors and paint each rectangle different color*/
