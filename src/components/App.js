@@ -1,6 +1,12 @@
 import React from 'react';
 import Table from './Table.js';
-import store, { addRow, pickColor, clearGrid } from '../store.js';
+import ColorSelector from './ColorSelector.js';
+import store, {
+  addRow,
+  pickColor,
+  clearGrid,
+  AVAILABLE_COLORS,
+} from '../store.js';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -42,18 +48,11 @@ export default class App extends React.Component {
           <button id="add-row" onClick={this.handleAddRowClick}>
             Add a row
           </button>
-          <select onChange={this.handleColorChange}>
-            <option value="red">Red</option>
-            <option value="orange">Orange</option>
-            <option value="yellow">Yellow</option>
-            <option value="green">Green</option>
-            <option value="blue">Blue</option>
-            <option value="indigo">Indigo</option>
-            <option value="violet">Violet</option>
-            <option value="black">Black</option>
-            <option value="white">White</option>
-            <option value="brown">Brown</option>
-          </select>
+          <ColorSelector
+            colors={AVAILABLE_COLORS}
+            selectedColor={this.state.selectedColor}
+            onChange={this.handleColorChange}
+          />
           <button id="clear-grid" onClick={this.handleClearGrid}>
             Clear grid
           </button>
