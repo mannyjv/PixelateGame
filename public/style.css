@@ -18,6 +18,11 @@ html {
   margin-bottom: 1.5rem;
 }
 
+select {
+  text-align: center;
+  margin-left: 0.5rem;
+}
+
 td {
   /*style each individual rectangle cell of data, several of these make up a row, each one will get colored as user clicks on it*/
   background-color: lightgray;

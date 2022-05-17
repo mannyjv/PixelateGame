@@ -1,5 +1,6 @@
 import React from 'react';
-import store, { addRow } from '../store.js';
+import store, { addRow, pickColor, colorize } from '../store.js';
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -7,6 +8,7 @@ export default class App extends React.Component {
     //use grid data in the render method- each row = a <tr> | each cell in the row = a <td>
 
     this.handleAddRowClick = this.handleAddRowClick.bind(this);
+    this.handleColorChange = this.handleColorChange.bind(this);
   }
   //after component is mounted- subscribe to further updates
   componentDidMount() {
@@ -22,9 +24,11 @@ export default class App extends React.Component {
   handleAddRowClick() {
     store.dispatch(addRow());
   }
+  handleColorChange(event) {
+    store.dispatch(pickColor(event.target.value));
+  }
 
   render() {
-    console.log(this.state);
     return (
       <div id="pixelate">
         <h1>Pixelate</h1>
@@ -32,7 +36,7 @@ export default class App extends React.Component {
           <button id="add-row" onClick={this.handleAddRowClick}>
             Add a row
           </button>
-          <select>
+          <select onChange={this.handleColorChange}>
             <option value="red">Red</option>
             <option value="orange">Orange</option>
             <option value="yellow">Yellow</option>
@@ -49,7 +53,11 @@ export default class App extends React.Component {
           {this.state.grid.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {row.map((color, cellIndex) => (
-                <td key={cellIndex} className={color}></td>
+                <td
+                  key={cellIndex}
+                  className={color}
+                  onClick={() => store.dispatch(colorize(rowIndex, cellIndex))}
+                ></td>
               ))}
             </tr>
           ))}
