@@ -44,6 +44,7 @@ function reducer(state = initialState, action) {
     case COLORIZE: // set the specified row/column in the grid with the value of selectedColor
       const newGrid = [...state.grid]; //copy what the grid currently looks like, num of rows etc.
       newGrid[action.row] = [...newGrid[action.row]]; //making a new copy of the actual row  to avoid mutating existing data
+
       newGrid[action.row][action.column] = state.selectedColor; //now that specific cell has the value of the selected color instead of an empty string - this matters because that cell(element) in the row array will now have a value of a string color, which will then be used to give it the className to style/color with css
       return { ...state, grid: newGrid };
     default:

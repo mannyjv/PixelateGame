@@ -1,5 +1,6 @@
 import React from 'react';
-import store, { addRow, pickColor, colorize } from '../store.js';
+import Table from './Table.js';
+import store, { addRow, pickColor } from '../store.js';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -49,19 +50,7 @@ export default class App extends React.Component {
             <option value="brown">Brown</option>
           </select>
         </div>
-        <table>
-          {this.state.grid.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              {row.map((color, cellIndex) => (
-                <td
-                  key={cellIndex}
-                  className={color}
-                  onClick={() => store.dispatch(colorize(rowIndex, cellIndex))}
-                ></td>
-              ))}
-            </tr>
-          ))}
-        </table>
+        <Table grid={this.state.grid} />
       </div>
     );
   }
