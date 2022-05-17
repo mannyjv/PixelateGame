@@ -16,11 +16,14 @@ html {
 
 #buttons-container {
   margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
 }
 
 select {
   text-align: center;
   margin: 0 0.5rem 0 0.5rem;
+  font-size: 0.9rem;
 }
 
 td {
