@@ -57,7 +57,7 @@ export default class App extends React.Component {
             Clear grid
           </button>
         </div>
-        <Table grid={this.state.grid} />
+        <Table grid={this.state.grid} mousedown={this.state.mousedown} />
       </div>
     );
   }

@@ -10,6 +10,7 @@ export default function TableRow(props) {
           rowIdx={props.rowIdx}
           colIdx={colIdx}
           color={color}
+          mousedown={props.mousedown}
         />
       ))}
     </tr>

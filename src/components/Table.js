@@ -6,7 +6,12 @@ export default function Table(props) {
     <table>
       <tbody>
         {props.grid.map((row, rowIdx) => (
-          <TableRow key={rowIdx} rowIdx={rowIdx} row={row} />
+          <TableRow
+            key={rowIdx}
+            rowIdx={rowIdx}
+            row={row}
+            mousedown={props.mousedown}
+          />
         ))}
       </tbody>
     </table>

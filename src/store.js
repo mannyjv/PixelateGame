@@ -20,6 +20,7 @@ export const AVAILABLE_COLORS = [
 const NUM_COLUMNS = 20; //essentially each new row will be this [Array(20).fill('')], each element(row) is an array with 20 elements in it of "" empty strings at first before colors occurs
 const initialState = {
   grid: [],
+  mousedown: false,
   selectedColor: AVAILABLE_COLORS[0], //set default chosen color to 'red'
 };
 
@@ -28,12 +29,14 @@ const ADD_ROW = 'ADD_ROW';
 const PICK_COLOR = 'PICK_COLOR';
 const COLORIZE = 'COLORIZE';
 const CLEAR_GRID = 'CLEAR_GRID';
+const MOUSE_DOWN = 'MOUSE_DOWN';
 
 // ACTION CREATORS
 export const addRow = () => ({ type: ADD_ROW });
 export const pickColor = (color) => ({ type: PICK_COLOR, color });
 export const colorize = (row, column) => ({ type: COLORIZE, row, column }); //takes in a row and column and return an action object
 export const clearGrid = () => ({ type: CLEAR_GRID });
+export const mouseDown = () => ({ type: MOUSE_DOWN });
 
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -57,8 +60,9 @@ function reducer(state = initialState, action) {
           return (cell = '');
         });
       });
-
       return { ...state, grid: newGrid };
+    case MOUSE_DOWN:
+      return { ...state, mousedown: !state.mousedown };
     default:
       return state;
   }
