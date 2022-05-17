@@ -8,7 +8,6 @@ module.exports = {
   context: __dirname,
   devtool: 'source-map',
   devServer: {
-    disableHostCheck: true,
     static: {
       directory: __dirname + '/public',
     },
