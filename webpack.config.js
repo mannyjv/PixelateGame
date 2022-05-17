@@ -9,6 +9,7 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     host: '0.0.0.0',
+    port: $PORT,
     static: {
       directory: __dirname + '/public',
     },
