@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from './Table.js';
-import store, { addRow, pickColor } from '../store.js';
+import store, { addRow, pickColor, clearGrid } from '../store.js';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -10,6 +10,7 @@ export default class App extends React.Component {
 
     this.handleAddRowClick = this.handleAddRowClick.bind(this);
     this.handleColorChange = this.handleColorChange.bind(this);
+    this.handleClearGrid = this.handleClearGrid.bind(this);
   }
   //after component is mounted- subscribe to further updates
   componentDidMount() {
@@ -27,6 +28,10 @@ export default class App extends React.Component {
   }
   handleColorChange(event) {
     store.dispatch(pickColor(event.target.value));
+  }
+
+  handleClearGrid() {
+    store.dispatch(clearGrid());
   }
 
   render() {
@@ -49,6 +54,9 @@ export default class App extends React.Component {
             <option value="white">White</option>
             <option value="brown">Brown</option>
           </select>
+          <button id="clear-grid" onClick={this.handleClearGrid}>
+            Clear grid
+          </button>
         </div>
         <Table grid={this.state.grid} />
       </div>

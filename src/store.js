@@ -27,11 +27,13 @@ const initialState = {
 const ADD_ROW = 'ADD_ROW';
 const PICK_COLOR = 'PICK_COLOR';
 const COLORIZE = 'COLORIZE';
+const CLEAR_GRID = 'CLEAR_GRID';
 
 // ACTION CREATORS
 export const addRow = () => ({ type: ADD_ROW });
 export const pickColor = (color) => ({ type: PICK_COLOR, color });
 export const colorize = (row, column) => ({ type: COLORIZE, row, column }); //takes in a row and column and return an action object
+export const clearGrid = () => ({ type: CLEAR_GRID });
 
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -42,10 +44,20 @@ function reducer(state = initialState, action) {
     case PICK_COLOR:
       return { ...state, selectedColor: action.color };
     case COLORIZE: // set the specified row/column in the grid with the value of selectedColor
-      const newGrid = [...state.grid]; //copy what the grid currently looks like, num of rows etc.
+      let newGrid = [...state.grid]; //copy what the grid currently looks like, num of rows etc.
       newGrid[action.row] = [...newGrid[action.row]]; //making a new copy of the actual row  to avoid mutating existing data
 
-      newGrid[action.row][action.column] = state.selectedColor; //now that specific cell has the value of the selected color instead of an empty string - this matters because that cell(element) in the row array will now have a value of a string color, which will then be used to give it the className to style/color with css
+      if (newGrid[action.row][action.column] === state.selectedColor) {
+        newGrid[action.row][action.column] = '';
+      } else newGrid[action.row][action.column] = state.selectedColor; //now that specific cell has the value of the selected color instead of an empty string - this matters because that cell(element) in the row array will now have a value of a string color, which will then be used to give it the className to style/color with css
+      return { ...state, grid: newGrid };
+    case CLEAR_GRID:
+      newGrid = [...state.grid].map((row) => {
+        return row.map((cell) => {
+          return (cell = '');
+        });
+      });
+
       return { ...state, grid: newGrid };
     default:
       return state;
