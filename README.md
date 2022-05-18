@@ -2,7 +2,7 @@
 
 Time to create your 8-bit art masterpiece! Try it here! https://pixelate-game.herokuapp.com/ 
 
-
+Gameplay: Add some rows, select a color, click individual cells or click and drag to paint! Clear grid to start over with a blank canvas.
 #
 Technologies used:
 <table>
