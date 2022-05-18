@@ -45,7 +45,7 @@ export default class App extends React.Component {
       <div id="pixelate">
         <h1>Pixelate</h1>
         <div id="buttons-container">
-          <button id="add-row" onClick={this.handleAddRowClick}>
+          <button id="add-row" class="btn" onClick={this.handleAddRowClick}>
             Add a row
           </button>
           <ColorSelector
@@ -53,7 +53,7 @@ export default class App extends React.Component {
             selectedColor={this.state.selectedColor}
             onChange={this.handleColorChange}
           />
-          <button id="clear-grid" onClick={this.handleClearGrid}>
+          <button id="clear-grid" class="btn" onClick={this.handleClearGrid}>
             Clear grid
           </button>
         </div>

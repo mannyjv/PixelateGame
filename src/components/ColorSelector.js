@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function ColorSelector(props) {
   return (
-    <select onChange={props.onChange} value={props.selectedColor}>
+    <select onChange={props.onChange} value={props.selectedColor} class="btn">
       {props.colors.map((color) => (
         <option key={color} value={color}>
           {color}
