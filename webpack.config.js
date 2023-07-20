@@ -1,19 +1,14 @@
+const path = require("path");
+
 module.exports = {
-  mode: "development",
+  mode: "development", // Set the mode to 'production' for production builds
   entry: ["./src/index.js"],
   output: {
-    path: __dirname + "/public",
+    path: path.resolve(__dirname, "build"), // Change the output path to create a 'build' folder
     filename: "bundle.js",
     publicPath: "/",
   },
-  context: __dirname,
   devtool: "source-map",
-  devServer: {
-    allowedHosts: [".github.io", ".herokuapp.com", ".netlify.com"],
-    static: {
-      directory: __dirname + "/public",
-    },
-  },
   module: {
     rules: [
       {
