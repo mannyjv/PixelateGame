@@ -4,6 +4,7 @@ module.exports = {
   output: {
     path: __dirname + "/public",
     filename: "bundle.js",
+    publicPath: "/",
   },
   context: __dirname,
   devtool: "source-map",
