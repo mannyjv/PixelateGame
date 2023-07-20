@@ -1,6 +1,9 @@
+[![header][header-url]][header-link]
+
 # Pixelate
 
-Time to create your 8-bit art masterpiece! Let your inner artist come out, try it [here](https://mannyjv.github.io/PixelateGame/).
+Let your inner artist come out.
+Try it [here](https://mannyjv.github.io/PixelateGame/).
 
 Gameplay: Add some rows, select a color, click individual cells or click and drag to paint! Clear grid to start over with a blank canvas.
 #
@@ -41,4 +44,10 @@ Technologies used:
         </tr>
       </tbody>
   </table>
+
+
+  <!-- Markdown link & img dfn's -->
+
+[header-url]: ./public/pixelate-game-photo.png
+[header-link]: https://mannyjv.github.io/PixelateGame/
 
