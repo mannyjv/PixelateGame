@@ -9,7 +9,7 @@ module.exports = {
   context: __dirname,
   devtool: "source-map",
   devServer: {
-    allowedHosts: [".herokuapp.com", ".netlify.com"],
+    allowedHosts: [".github.io", ".herokuapp.com", ".netlify.com"],
     static: {
       directory: __dirname + "/public",
     },
